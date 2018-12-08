@@ -4,7 +4,7 @@
 
 Amtega MCU w/ external SPI NOR flash and a ublox module (UART) and a SPI Digital Accelerometer.
 
-![scheme](01/scheme.png)
+![scheme](res/scheme.png)
 
 It looks like scheme is a bit incorrect - UART to the MCU is connected to two GNDs?
 
@@ -68,7 +68,7 @@ It took me a WHILE to understand that `format2` just transforms and longtitude a
 
 here is a screenshot of a debugging session in order to understand `format2`:
 
-![format2 debug](01/format2_debug.png)
+![format2 debug](res/format2_debug.png)
 
 The `format_save` function appears to format the data before it is written to the flash:
 ```c
