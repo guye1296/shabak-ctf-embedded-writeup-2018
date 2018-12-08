@@ -4,7 +4,7 @@
 
 Amtega MCU w/ external SPI NOR flash and a ublox module (UART) and a SPI Digital Accelerometer.
 
-![scheme](01/scheme.png)
+![scheme](gscheme.png)
 
 It looks like scheme is a bit incorrect - UART to the MCU is connected to two GNDs?
 
@@ -68,7 +68,7 @@ It took me a WHILE to understand that `format2` just transforms and longtitude a
 
 here is a screenshot of a debugging session in order to understand `format2`:
 
-![format2 debug](01/format2_debug.png)
+![format2 debug](gformat2_debug.png)
 
 The `format_save` function appears to format the data before it is written to the flash:
 ```c
@@ -146,7 +146,7 @@ class FlashMessage(object):
             return("GPGGA: lat:{lat:.5f}, \tlong:{long:.5f}\t").format(lat=self.lat, long=self.long)
 ```
 and here is a screenshot of the parsed external memory:
-![parsed memory](01/initial_parser.png)
+![parsed memory](ginitial_parser.png)
 
 *Taking a random lat/long line to google maps gives a coordinate in Israel!*
 
@@ -213,13 +213,13 @@ Now that we got that out of the way:
 
 After reading the datasheet: `OCR1A` is the comparator, and TCCR1B can control the prescalar:
 
-![prescalar from datasheet](01/prescalar.png)
+![prescalar from datasheet](gprescalar.png)
 
 Meaning that the prescalar = 1024
 
 Hence the timer ISR frequency:
 
-![ipython ISR freq](01/isr_py.png)
+![ipython ISR freq](gisr_py.png)
 
 That means that every increase of the counter variable == 4 seconds!
 It is also seen that:
@@ -248,17 +248,17 @@ elif self._type == 3:
 
 Now the parsed messaged looks like this:
 
-![parsed messages](01/parsed_with_tick.png)
+![parsed messages](gparsed_with_tick.png)
 
 We also notice that a reset occured, and the MCU latter started at `28/10/18:16:17`:
 
-![GPRMC after reset](01/gprmc_after_reset.png)
+![GPRMC after reset](ggprmc_after_reset.png)
 
 We know that the message was recived at `30/10/18:01:20`, we can use the power of python in order to get the relevant tick!
 
-![tick calculation](01/tick_calc.png)
+![tick calculation](gtick_calc.png)
 
 And the answer is the following:
 
-![answer](01/answer.png)
+![answer](ganswer.png)
 
