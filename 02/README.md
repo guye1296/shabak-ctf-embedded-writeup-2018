@@ -3,6 +3,7 @@
 Looking at the given .pcap file, there are the following activities:
 
   1. HTTP Traffic:
+  
     * http://www.aljazeera.net - GET
     * /portal - GET
     * /sessions - POST
@@ -12,7 +13,7 @@ Looking at the given .pcap file, there are the following activities:
   2. TLS traffic - which I assume is irrelevant
   3. ARP / DNS - which I assume is irrelevant
 
-I've decided to focus on the http files. Since /session and /messages had the most suspicious name I've decided to look at these first:
+I've decided to focus on the http files. Since `/session` and `/messages` had the most suspicious name I've decided to look at these first:
 
 ![pcap POST](res/pcap_post.png)
 
@@ -63,7 +64,7 @@ I've decided later on to make an experiment - maybe the text was XOR'd on the 'B
 
 OK... This did not go well. Let's print the binary repr of the characters:
 
-![img 1 analysis](res/py_1_analyze.png)
+![img 1 analysis](res/py_1_analize.png)
 
 It can be seen that only even ascii codes are interpreted right! If we recall our `/message` JSON - It had a `Counter` field. So let's XOR with that:
 
@@ -96,7 +97,7 @@ And the final result:
 
 ![terrorist chat 4](res/chat4.png)
 
-![terrorist chat 6](res/chat4.png)
+![terrorist chat 6](res/chat6.png)
 
 
 ![woohoo](res/success2.png)
