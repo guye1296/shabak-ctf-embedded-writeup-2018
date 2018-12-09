@@ -8,3 +8,5 @@ This CTF had tow challnges, one with an embedded-MMUless system and one with a .
 You can read about each one of those in the following markdown files:
   * [First Challenge](01/README.md)
   * [Second Challenge](02/README.md)
+
+![woohoo](congrats.png)
