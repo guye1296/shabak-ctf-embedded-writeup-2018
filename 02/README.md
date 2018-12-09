@@ -19,7 +19,7 @@ I've decided to focus on the http files. Since `/session` and `/messages` had th
 
 ## /Sessions
 
-[!pcap /session](res/session_post_data.png)
+![pcap /session](res/session_post_data.png)
 
 This looks promising! It contains a JSON with two fields - a session ID, and an array of URLS.
 
