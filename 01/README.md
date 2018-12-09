@@ -4,7 +4,7 @@
 
 Amtega MCU w/ external SPI NOR flash and a ublox module (UART) and a SPI Digital Accelerometer.
 
-![scheme](01/scheme.png)
+![scheme](res/scheme.png)
 
 It looks like scheme is a bit incorrect - UART to the MCU is connected to two GNDs?
 
@@ -68,7 +68,7 @@ It took me a WHILE to understand that `format2` just transforms and longtitude a
 
 here is a screenshot of a debugging session in order to understand `format2`:
 
-![format2 debug](01/format2_debug.png)
+![format2 debug](res/format2_debug.png)
 
 The `format_save` function appears to format the data before it is written to the flash:
 ```c
@@ -146,7 +146,7 @@ class FlashMessage(object):
             return("GPGGA: lat:{lat:.5f}, \tlong:{long:.5f}\t").format(lat=self.lat, long=self.long)
 ```
 and here is a screenshot of the parsed external memory:
-![parsed memory](01/initial_parser.png)
+![parsed memory](res/initial_parser.png)
 
 *Taking a random lat/long line to google maps gives a coordinate in Israel!*
 
@@ -213,13 +213,13 @@ Now that we got that out of the way:
 
 After reading the datasheet: `OCR1A` is the comparator, and TCCR1B can control the prescalar:
 
-![prescalar from datasheet](01/prescalar.png)
+![prescalar from datasheet](res/prescalar.png)
 
 Meaning that the prescalar = 1024
 
 Hence the timer ISR frequency:
 
-![ipython ISR freq](01/isr_py.png)
+![ipython ISR freq](res/isr_py.png)
 
 That means that every increase of the counter variable == 4 seconds!
 It is also seen that:
